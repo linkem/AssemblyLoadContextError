@@ -24,21 +24,21 @@ public class PluginApp1 : IPlugin
             Console.WriteLine("Assembly mismatch!");
         }
 
-        // uncommont to throw `System.MissingMethodException: Method not found...`
-        // to make it work => change `System.Text.Json` package to version `6.0.0`
-        //var response = await new HttpClient().GetAsync("https://jsonplaceholder.typicode.com/todos/1");
-        //var jsonContent = response.Content.ReadFromJsonAsync<TodoModel>();
+        // `ReadFromJsonAsync` in this line throws `System.MissingMethodException: Method not found...`, to debug - comment it out 
+        // and read duplicated assemblies (It works fine with `System.Text.Json` package version `6.0.0`)
+        var jsonContent = (await new HttpClient().GetAsync("https://jsonplaceholder.typicode.com/todos/1")).Content.ReadFromJsonAsync<TodoModel>();
 
         PrintDuplicatedAssemblies();
     }
 
     private void PrintDuplicatedAssemblies()
     {
-        var ass = AppDomain.CurrentDomain
+        var allAssemblies = AppDomain.CurrentDomain
             .GetAssemblies().ToList();
+
         var duplicatedAssemblies = AppDomain.CurrentDomain
             .GetAssemblies()
-            .GroupBy(x => x.FullName, (key, assemblies) =>
+            .GroupBy(x => x.GetName().Name, (key, assemblies) =>
                 new
                 {
                     AssemblyName = key,
@@ -49,7 +49,7 @@ public class PluginApp1 : IPlugin
 
         foreach (var duplicatedAssembly in duplicatedAssemblies)
         {
-            Console.WriteLine($"Assembly: {duplicatedAssembly.AssemblyName}");
+            Console.WriteLine($"For Assembly '{duplicatedAssembly.AssemblyName}' found multiple instances: ");
             foreach (var assembly in duplicatedAssembly.Assemblies)
             {
                 Console.WriteLine($"{assembly}; Location: {assembly.Location}");
