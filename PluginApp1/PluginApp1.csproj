@@ -10,10 +10,10 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-		<PackageReference Include="System.Text.Json" Version="6.0.7" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\MyLib\MyLib.csproj" />
 		<ProjectReference Include="..\Plugin.Abstraction\Plugin.Abstraction.csproj">
 			<Private>false</Private>
 			<ExcludeAssets>runtime</ExcludeAssets>

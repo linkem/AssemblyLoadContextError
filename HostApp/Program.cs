@@ -1,7 +1,6 @@
 ﻿using Plugin.Abstraction;
 using PluginHost;
 using System.Reflection;
-
 //Console.WriteLine($"Current dir: {Directory.GetCurrentDirectory()}");
 var absolutePathToPluginApp1 = Path.GetFullPath(@"..\PluginApp1\bin\Debug\net6.0\PluginApp1.dll");
 

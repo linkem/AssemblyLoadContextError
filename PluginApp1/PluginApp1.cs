@@ -1,4 +1,5 @@
-﻿using Plugin.Abstraction;
+﻿using MyLib;
+using Plugin.Abstraction;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -11,7 +12,6 @@ public class PluginApp1 : IPlugin
         var methodInfo = typeof(HttpContentJsonExtensions)
             .GetMethods()
             .Where(x => x.Name == "ReadFromJsonAsync" 
-                && x.IsPublic 
                 && x.IsPublic 
                 && x.IsGenericMethod 
                 && x.GetParameters().Any(s => s.Name == "options"))
@@ -26,8 +26,10 @@ public class PluginApp1 : IPlugin
 
         // `ReadFromJsonAsync` in this line throws `System.MissingMethodException: Method not found...`, to debug - comment it out 
         // and read duplicated assemblies (It works fine with `System.Text.Json` package version `6.0.0`)
-        var jsonContent = (await new HttpClient().GetAsync("https://jsonplaceholder.typicode.com/todos/1")).Content.ReadFromJsonAsync<TodoModel>();
-
+        //var jsonContent = await ToDoRestClient.GetToDoAsync();
+        var jsonContent = (await new HttpClient()
+            .GetAsync("https://jsonplaceholder.typicode.com/todos/1"))
+            .Content.ReadFromJsonAsync<TodoModel>((JsonSerializerOptions?)null, default);
         PrintDuplicatedAssemblies();
     }
 
@@ -58,9 +60,4 @@ public class PluginApp1 : IPlugin
             Console.WriteLine();
         }
     }
-}
-
-public record TodoModel
-{
-    public int UserId { get; set; }
 }

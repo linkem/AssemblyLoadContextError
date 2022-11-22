@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp1", "PluginApp1\Pl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginHost", "HostApp\PluginHost.csproj", "{CDC46D48-EC7F-4986-BCF0-936F0F7368FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLib", "MyLib\MyLib.csproj", "{DB159391-A53C-4C77-9DAC-F1070EB89AC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CDC46D48-EC7F-4986-BCF0-936F0F7368FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDC46D48-EC7F-4986-BCF0-936F0F7368FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC46D48-EC7F-4986-BCF0-936F0F7368FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB159391-A53C-4C77-9DAC-F1070EB89AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB159391-A53C-4C77-9DAC-F1070EB89AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB159391-A53C-4C77-9DAC-F1070EB89AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB159391-A53C-4C77-9DAC-F1070EB89AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

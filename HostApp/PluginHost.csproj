@@ -6,7 +6,6 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
-	
 	<ItemGroup>
 	  <ProjectReference Include="..\Plugin.Abstraction\Plugin.Abstraction.csproj" />
 	</ItemGroup>
