@@ -5,7 +5,6 @@ public static class FrameworkAssemblies
     public static List<string> AspNetFrameworkAssembliesNames = new()
     {
         "Microsoft.AspNetCore.Antiforgery",
-        "Microsoft.AspNetCore.App.runtimeconfig",
         "Microsoft.AspNetCore.Authentication.Abstractions",
         "Microsoft.AspNetCore.Authentication.Cookies",
         "Microsoft.AspNetCore.Authentication.Core",
@@ -143,7 +142,6 @@ public static class FrameworkAssemblies
         "Microsoft.CSharp",
         "Microsoft.DiaSymReader.Native.amd64",
         "Microsoft.NETCore.App.deps",
-        "Microsoft.NETCore.App.runtimeconfig",
         "Microsoft.VisualBasic.Core",
         "Microsoft.VisualBasic",
         "Microsoft.Win32.Primitives",
