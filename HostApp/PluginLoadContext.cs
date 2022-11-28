@@ -15,6 +15,20 @@ public class PluginLoadContext : AssemblyLoadContext
 
     protected override Assembly Load(AssemblyName assemblyName)
     {
+        if (FrameworkAssemblies.IsFrameworkAssembly(assemblyName))
+        {
+            // framework assemblies should be resolved by Default context
+            try
+            {
+                var defaultAssembly = Default.LoadFromAssemblyName(assemblyName);
+                return defaultAssembly;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         string assemblyPath = _resolver.ResolveAssemblyToPath(assemblyName);
         if (assemblyPath != null)
         {
